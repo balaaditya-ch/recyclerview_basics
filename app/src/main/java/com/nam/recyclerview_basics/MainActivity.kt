@@ -2,6 +2,7 @@ package com.nam.recyclerview_basics
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -17,9 +18,10 @@ class MainActivity : AppCompatActivity() {
             ItemModel("Item 4", "Description for item 4")
         )
 
-        // Find RecyclerView and set it up
+        // Find RecyclerView and set it up with GridLayoutManager
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        // GridLayoutManager with 2 columns
+        recyclerView.layoutManager = GridLayoutManager(this, 2)
         recyclerView.adapter = ItemAdapter(items)
     }
 }
