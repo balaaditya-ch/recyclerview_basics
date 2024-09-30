@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ItemAdapter(private val itemList: List<ItemModel>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(private val itemList: List<ItemModel>,private val listener: ItemClickOnItemModel ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
 
     // ViewHolder class to represent each item in the RecyclerView
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         val tvDescription: TextView = itemView.findViewById(R.id.tvDescription)
     }
@@ -24,6 +25,9 @@ class ItemAdapter(private val itemList: List<ItemModel>) : RecyclerView.Adapter<
         val currentItem = itemList[position]
         holder.tvTitle.text = currentItem.title
         holder.tvDescription.text = currentItem.description
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(currentItem)
+        }
     }
 
     override fun getItemCount(): Int = itemList.size
