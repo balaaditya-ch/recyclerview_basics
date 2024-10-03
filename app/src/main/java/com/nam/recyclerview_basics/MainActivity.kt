@@ -2,6 +2,7 @@ package com.nam.recyclerview_basics
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity() {
         // Find RecyclerView and set it up
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.addItemDecoration(
+            DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        )
         recyclerView.adapter = ItemAdapter(items)
     }
 }
