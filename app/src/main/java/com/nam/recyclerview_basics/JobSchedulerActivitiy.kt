@@ -16,7 +16,7 @@ class JobSchedulerActivitiy : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_work_manager)
 
         jobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
 
